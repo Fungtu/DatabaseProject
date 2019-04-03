@@ -1,0 +1,45 @@
+import pymysql
+import sys
+from typing import *
+from PyQt5.QtCore import Qt, QAbstractTableModel, QVariant
+from PyQt5.QtWidgets import (
+    QApplication,
+    QWidget,
+    QLabel,
+    QPushButton,
+    QHBoxLayout,
+    QVBoxLayout,
+    QListView,
+    QAbstractItemView,
+    QMessageBox,
+    QLineEdit,
+    QTableView, QDialog, qApp, QGroupBox, QFormLayout, QDialogButtonBox)
+from PyQt5.QtGui import (
+    QStandardItemModel,
+    QStandardItem,
+    QPixmap)
+
+class Screen7Window(QWidget):
+    def __init__(self):
+        super (Screen7Window, self).__init__()
+        self.setWindowTitle("User Functionality")
+
+        left, top, width, height = 550, 50, 250, 400
+        self.setGeometry(left, top, width, height)
+
+        self.takeTransit_btn = QPushButton("Take Transit")
+        self.viewTransitHistory_btn = QPushButton ("View Transit History")
+        self.back_btn = QPushButton("Back")
+
+        vbox = QVBoxLayout()
+        vbox.addWidget(self.takeTransit_btn)
+        vbox.addWidget(self.viewTransitHistory_btn)
+        vbox.addWidget(self.back_btn)
+        self.setLayout(vbox)
+
+if __name__=='__main__':
+    app = QApplication(sys.argv)
+    screen7 = Screen7Window()
+    screen7.show()
+
+    sys.exit(app.exec_())

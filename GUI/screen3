@@ -1,0 +1,82 @@
+import sys
+from PyQt5.QtWidgets import (QWidget, QPushButton,
+    QHBoxLayout, QVBoxLayout, QApplication, QLabel, QLineEdit, QComboBox)
+
+
+class Screen3Window(QWidget):
+
+    def __init__(self):
+        super().__init__()
+
+        self.initUI()
+
+
+    def initUI(self):
+
+
+        self.label1 = QLabel("First Name:", self)
+        self.label2 = QLabel("Username:", self)
+        self.label3 = QLabel("Password:", self)
+        self.label4 = QLabel("Last Name:", self)
+        self.label5 = QLabel("Confirm Password:", self)
+        self.label6 = QLabel("Email:", self)
+
+        textbox1 = QLineEdit(self)
+        textbox2 = QLineEdit(self)
+        textbox3 = QLineEdit(self)
+        textbox4 = QLineEdit(self)
+        textbox5 = QLineEdit(self)
+        textbox6 = QLineEdit(self)
+
+        self.add_btn = QPushButton("Add")
+        self.back_btn = QPushButton("Back")
+        self.register_btn = QPushButton("Register")
+
+        hbox1 = QHBoxLayout()
+        hbox2 = QHBoxLayout()
+        hbox3 = QHBoxLayout()
+        hbox4 = QHBoxLayout()
+        hbox5 = QHBoxLayout()
+
+        hbox1.addWidget(self.label1)
+        hbox1.addWidget(textbox1)
+        hbox1.addWidget(self.label4)
+        hbox1.addWidget(textbox2)
+        hbox2.addWidget(self.label2)
+        hbox2.addWidget(textbox3)
+        hbox3.addWidget(self.label3)
+        hbox3.addWidget(textbox4)
+        hbox3.addWidget(self.label5)
+        hbox3.addWidget(textbox5)
+        hbox4.addWidget(self.label6)
+        hbox4.addWidget(textbox6)
+        hbox4.addWidget(self.add_btn)
+        hbox5.addWidget(self.back_btn)
+        hbox5.addWidget(self.register_btn)
+
+        vbox = QVBoxLayout()
+        # vbox.addStretch(1)
+        vbox.addLayout(hbox1)
+        vbox.addLayout(hbox2)
+        vbox.addLayout(hbox3)
+        vbox.addLayout(hbox4)
+        vbox.addLayout(hbox5)
+
+
+        # vbox.addWidget(self.label)
+        # vbox.addWidget(self.label2)
+        # vbox.addWidget(self.label3)
+        # vbox.addWidget(self.label4)
+
+        self.setLayout(vbox)
+
+        self.setGeometry(500, 500, 500, 500)
+        self.setWindowTitle('Register User Only')
+        self.show()
+
+
+if __name__ == '__main__':
+
+    app = QApplication(sys.argv)
+    screen3 = Screen3Window()
+    sys.exit(app.exec_())

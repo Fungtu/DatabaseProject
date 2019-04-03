@@ -1,0 +1,49 @@
+import pymysql
+import sys
+from typing import *
+from PyQt5.QtCore import Qt, QAbstractTableModel, QVariant
+from PyQt5.QtWidgets import (
+    QApplication,
+    QWidget,
+    QLabel,
+    QPushButton,
+    QHBoxLayout,
+    QVBoxLayout,
+    QListView,
+    QAbstractItemView,
+    QMessageBox,
+    QLineEdit,
+    QTableView, QDialog, qApp, QGroupBox, QFormLayout, QDialogButtonBox)
+from PyQt5.QtGui import (
+    QStandardItemModel,
+    QStandardItem,
+    QPixmap)
+
+class Screen2Window(QWidget):
+    def __init__(self):
+        super (Screen2Window, self).__init__()
+        self.setWindowTitle("Register Navigation")
+
+        left, top, width, height = 550, 50, 250, 400
+        self.setGeometry(left, top, width, height)
+
+        self.userOnly_btn = QPushButton("User Only")
+        self.visitorOnly_btn = QPushButton("Visitor Only")
+        self.employeeOnly_btn = QPushButton("Employee Only")
+        self.employeeVisitor_btn = QPushButton("Employee Visitor")
+        self.back_btn = QPushButton("Back")
+
+        vbox = QVBoxLayout()
+        vbox.addWidget(self.userOnly_btn)
+        vbox.addWidget(self.visitorOnly_btn)
+        vbox.addWidget(self.employeeOnly_btn)
+        vbox.addWidget(self.employeeVisitor_btn)
+        vbox.addWidget(self.back_btn)
+        self.setLayout(vbox)
+
+if __name__=='__main__':
+    app = QApplication(sys.argv)
+    screen2 = Screen2Window()
+    screen2.show()
+
+    sys.exit(app.exec_())

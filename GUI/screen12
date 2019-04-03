@@ -1,0 +1,49 @@
+import pymysql
+import sys
+from typing import *
+from PyQt5.QtCore import Qt, QAbstractTableModel, QVariant
+from PyQt5.QtWidgets import (
+    QApplication,
+    QWidget,
+    QLabel,
+    QPushButton,
+    QHBoxLayout,
+    QVBoxLayout,
+    QListView,
+    QAbstractItemView,
+    QMessageBox,
+    QLineEdit,
+    QTableView, QDialog, qApp, QGroupBox, QFormLayout, QDialogButtonBox)
+from PyQt5.QtGui import (
+    QStandardItemModel,
+    QStandardItem,
+    QPixmap)
+
+class Screen12Window(QWidget):
+    def __init__(self):
+        super (Screen12Window, self).__init__()
+        self.setWindowTitle("Staff Functionality")
+
+        left, top, width, height = 550, 50, 250, 400
+        self.setGeometry(left, top, width, height)
+
+        self.manageProfile_btn = QPushButton("Manage Profile")
+        self.viewSchedule_btn = QPushButton("View Schedule")
+        self.takeTransit_btn = QPushButton("Take Transit")
+        self.viewTransitHistory_btn = QPushButton("View Transit History")
+        self.back_btn = QPushButton("Back")
+
+        vbox = QVBoxLayout()
+        vbox.addWidget(self.manageProfile_btn)
+        vbox.addWidget(self.viewSchedule_btn)
+        vbox.addWidget(self.takeTransit_btn)
+        vbox.addWidget(self.viewTransitHistory_btn)
+        vbox.addWidget(self.back_btn)
+        self.setLayout(vbox)
+
+if __name__=='__main__':
+    app = QApplication(sys.argv)
+    screen12 = Screen12Window()
+    screen12.show()
+
+    sys.exit(app.exec_())
